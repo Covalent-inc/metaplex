@@ -727,36 +727,37 @@ const Home = (props: HomeProps) => {
       <Container
         maxWidth="xl"
         style={{
-          marginTop: '65%',
+          marginTop: '75%',
+          position: 'relative',
         }}
       >
         <Grid justifyContent="center" alignItems="center" container>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={7}>
             <Box>
               <img
-                style={{ borderRadius: '2.5rem', marginTop: '0rem' }}
+                style={{ borderRadius: '2.5rem', marginTop: '-9rem' }}
                 width="100%"
                 alt="Kippo"
                 src="/static/image/FVf98ogVEAAtnQe.jpg"
               />
             </Box>
           </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={7}>
             <Box sx={{ marginTop: '2rem', textAlign: 'center' }}>
               <img
-                style={{ borderRadius: '2.5rem', marginTop: '4rem' }}
+                style={{ borderRadius: '2.5rem', marginTop: '2rem' }}
                 width="100%"
                 alt="Kippo"
                 src="/static/image/FVgByXhUUAEB5BF.jpg"
               />
             </Box>
           </Grid>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={12}>
             <Box sx={{ mt: '2rem', textAlign: 'center', pb: '2rem' }}>
               <Link href="http://kippo.com/nft">
                 <img
-                  style={{ borderRadius: '2.5rem', marginTop: '4rem' }}
-                  width="16%"
+                  style={{ borderRadius: '2.5rem', marginTop: '2rem' }}
+                  width="12%"
                   alt="Kippo"
                   src="/static/image/wordmark_nft_full@3x.png"
                 />
