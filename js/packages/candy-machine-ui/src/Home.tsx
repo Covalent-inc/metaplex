@@ -412,15 +412,15 @@ const Home = (props: HomeProps) => {
       }
     } catch (error: any) {
       let message = error.msg || 'Minting failed! Please try again!';
+      let soldOut = false;
       if (!error.msg) {
         if (!error.message) {
           message = 'Transaction timeout! Please try again.';
-        }
-        // else if (error.message.indexOf('0x137')) {
-        //   console.log(error);
-        //   message = `SOLD OUT!`;
-        // }
-        else if (error.message.indexOf('0x135')) {
+        } else if (error.message.indexOf('0x137')) {
+          console.log(error);
+          message = `SOLD OUT!`;
+          soldOut = true;
+        } else if (error.message.indexOf('0x135')) {
           message = `Insufficient funds to mint. Please fund your wallet.`;
         }
       } else {
@@ -432,12 +432,15 @@ const Home = (props: HomeProps) => {
           message = `Minting period hasn't started yet.`;
         }
       }
-
-      setAlertState({
-        open: true,
-        message,
-        severity: 'error',
-      });
+      if (!soldOut) {
+        // The sold out alert is shown even when that is not the case
+        // so we should disable it for the time being
+        setAlertState({
+          open: true,
+          message,
+          severity: 'error',
+        });
+      }
       // updates the candy machine state to reflect the latest
       // information on chain
       refreshCandyMachineState();
