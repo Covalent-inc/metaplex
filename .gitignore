@@ -25,7 +25,6 @@ target
 .env
 .vscode
 bin
-config.json
 node_modules
 ./package-lock.json
 hfuzz_target
