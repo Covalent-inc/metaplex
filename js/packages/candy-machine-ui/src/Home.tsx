@@ -53,6 +53,7 @@ export interface HomeProps {
   network: WalletAdapterNetwork;
 }
 
+// @ts-ignore
 const Home = (props: HomeProps) => {
   const [isUserMinting, setIsUserMinting] = useState(false);
   const [candyMachine, setCandyMachine] = useState<CandyMachineAccount>();
@@ -476,6 +477,7 @@ const Home = (props: HomeProps) => {
     })();
   }, [refreshCandyMachineState]);
 
+  // @ts-ignore
   return (
     <Container maxWidth="xl" style={{ padding: 0 }}>
       <Container maxWidth="xl" style={{ padding: 0 }}>
