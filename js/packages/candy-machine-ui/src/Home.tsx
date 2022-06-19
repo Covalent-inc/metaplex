@@ -415,10 +415,12 @@ const Home = (props: HomeProps) => {
       if (!error.msg) {
         if (!error.message) {
           message = 'Transaction timeout! Please try again.';
-        } else if (error.message.indexOf('0x137')) {
-          console.log(error);
-          message = `SOLD OUT!`;
-        } else if (error.message.indexOf('0x135')) {
+        }
+        // else if (error.message.indexOf('0x137')) {
+        //   console.log(error);
+        //   message = `SOLD OUT!`;
+        // }
+        else if (error.message.indexOf('0x135')) {
           message = `Insufficient funds to mint. Please fund your wallet.`;
         }
       } else {
