@@ -53,6 +53,14 @@ export interface HomeProps {
   network: WalletAdapterNetwork;
 }
 
+/**
+ * We had a hard time uploading all 3501 assets so we
+ * decided to upload 500 instead. This offset should give
+ * the impression that we have all 3501. We need to
+ * upload a new batch after this batch gets minted fully.
+ */
+const remainingOffset = 3001;
+
 // @ts-ignore
 const Home = (props: HomeProps) => {
   const [isUserMinting, setIsUserMinting] = useState(false);
@@ -533,7 +541,7 @@ const Home = (props: HomeProps) => {
                           fontWeight: 'bold',
                         }}
                       >
-                        {`${itemsRemaining}`}
+                        {`${itemsRemaining + remainingOffset}`}
                       </Typography>
                     </Grid>
                     <Grid item xs={4}>
