@@ -1,0 +1,25 @@
+{
+  "name": "14",
+  "symbol": "",
+  "image": "14.png",
+  "properties": {
+    "files": [{ "uri": "14.png", "type": "image/png" }],
+    "category": "image",
+     "creators":
+        [
+            {
+                "address": "B5AEsv8vtoQr4Tpy1DVAFoMaQAKRZBVUAPX92VSEjHBP",
+                "share": 100
+            }
+        ]
+  },
+  "description": "",
+  "seller_fee_basis_points": 500,
+  "attributes": [
+    { "trait_type": "background", "value": "brown" },
+    { "trait_type": "eyes", "value": "star-eyes" },
+    { "trait_type": "mouth", "value": "block-mouth" },
+    { "trait_type": "face", "value": "teal-face" }
+  ],
+  "collection": {}
+}
