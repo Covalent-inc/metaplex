@@ -432,9 +432,16 @@ const Home = (props: HomeProps) => {
           message = `Minting period hasn't started yet.`;
         }
       }
-      if (!soldOut) {
-        // The sold out alert is shown even when that is not the case
-        // so we should disable it for the time being
+      if (soldOut) {
+        // The sold out alert is shown after a successful transaction. We should show
+        // a success message instead
+        setAlertState({
+          open: true,
+          message: 'Congratulations! Mint succeeded!',
+          severity: 'success',
+          hideDuration: 7000,
+        });
+      } else {
         setAlertState({
           open: true,
           message,
@@ -782,6 +789,10 @@ const Home = (props: HomeProps) => {
         </Grid>
       </Container>
       <Snackbar
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
         open={alertState.open}
         autoHideDuration={
           alertState.hideDuration === undefined ? 6000 : alertState.hideDuration
