@@ -542,7 +542,7 @@ const Home = (props: HomeProps) => {
                     justifyContent="center"
                     wrap="nowrap"
                   >
-                    <Grid item xs={3}>
+                    <Grid item xs={5}>
                       <Typography variant="body2" color="textSecondary">
                         Remaining
                       </Typography>
@@ -553,10 +553,10 @@ const Home = (props: HomeProps) => {
                           fontWeight: 'bold',
                         }}
                       >
-                        {`${itemsRemaining + remainingOffset}`}
+                        {`${itemsRemaining + remainingOffset} / 5500`}
                       </Typography>
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item xs={2}>
                       <Typography variant="body2" color="textSecondary">
                         {isWhitelistUser && discountPrice
                           ? 'Discount Price'
