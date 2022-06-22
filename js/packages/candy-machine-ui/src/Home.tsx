@@ -500,25 +500,18 @@ const Home = (props: HomeProps) => {
     })();
   }, [refreshCandyMachineState]);
 
-  // @ts-ignore
-  //  let paperStyle = {
-  //   textAlign: 'center',
-  //   height: '148px',
-  //   padding: "20px",
-  //   paddingBottom: 0,
-  //   backgroundColor: '#151A1F',
-  //   borderRadius: 6,
-  // }
-  // if (wallet.connected) {
-  //   paperStyle = {
-  //     textAlign: 'center',
-  //     height: '148px',
-  //     padding: 0,
-  //     paddingBottom: 0,
-  //     backgroundColor: '#151A1F',
-  //     borderRadius: 6,
-  //   }
-  // }
+  let paperStyle = {
+    backgroundColor: '#151A1F',
+    borderRadius: 6,
+    padding: '20px'
+  }
+  if (wallet.connected) {
+    paperStyle = {
+      backgroundColor: '#151A1F',
+      borderRadius: 6,
+      padding: 0
+    }
+  }
   return (
     <Container style={{ padding: 0 }}>
         <Container
@@ -530,10 +523,7 @@ const Home = (props: HomeProps) => {
           }}
         >
           <Paper
-            style={{
-              backgroundColor: '#151A1F',
-              borderRadius: 6,
-            }}
+            style={paperStyle}
           >
             {!wallet.connected ? (
               <ConnectButton>Connect Wallet</ConnectButton>
