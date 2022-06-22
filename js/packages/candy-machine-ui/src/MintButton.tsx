@@ -14,12 +14,13 @@ import {
 
 export const CTAButton = styled(Button)`
   width: 100%;
-  height: 60px;
+  height: 48px;
   margin-top: 10px;
   margin-bottom: 5px;
   background: linear-gradient(180deg, #604ae5 0%, #813eee 100%);
   color: white;
-  font-size: 16px;
+  font-size: 12px;
+  text-align: center;
   font-weight: bold;
 `; // add your own styles here
 
@@ -93,7 +94,6 @@ export const MintButton = ({
     ) {
       setIsMinting(true);
     }
-    console.log('change: ', gatewayStatus);
   }, [setIsMinting, previousGatewayStatus, gatewayStatus]);
 
   return (

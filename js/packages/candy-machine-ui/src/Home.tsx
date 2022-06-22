@@ -43,7 +43,10 @@ const ConnectButton = styled(WalletDialogButton)`
   font-weight: bold;
 `;
 
-const MintContainer = styled.div``; // add your owns styles here
+const MintContainer = styled.div`
+  width: 90%;
+  text-align: 'center';
+`;
 
 export interface HomeProps {
   candyMachineId?: anchor.web3.PublicKey;
@@ -262,7 +265,7 @@ const Home = (props: HomeProps) => {
             ) {
               setAlertState({
                 open: true,
-                message: `Couldn't fetch candy machine state from candy machine with address: ${props.candyMachineId}, using rpc: ${props.rpcHost}! You probably typed the REACT_APP_CANDY_MACHINE_ID value in wrong in your .env file, or you are using the wrong RPC!`,
+                message: `Unable to connect to the Solana network`,
                 severity: 'error',
                 hideDuration: null,
               });
@@ -271,7 +274,7 @@ const Home = (props: HomeProps) => {
             ) {
               setAlertState({
                 open: true,
-                message: `Couldn't fetch candy machine state with rpc: ${props.rpcHost}! This probably means you have an issue with the REACT_APP_SOLANA_RPC_HOST value in your .env file, or you are not using a custom RPC!`,
+                message: `Unable to connect to the Solana network`,
                 severity: 'error',
                 hideDuration: null,
               });
@@ -498,35 +501,36 @@ const Home = (props: HomeProps) => {
   }, [refreshCandyMachineState]);
 
   // @ts-ignore
+  //  let paperStyle = {
+  //   textAlign: 'center',
+  //   height: '148px',
+  //   padding: "20px",
+  //   paddingBottom: 0,
+  //   backgroundColor: '#151A1F',
+  //   borderRadius: 6,
+  // }
+  // if (wallet.connected) {
+  //   paperStyle = {
+  //     textAlign: 'center',
+  //     height: '148px',
+  //     padding: 0,
+  //     paddingBottom: 0,
+  //     backgroundColor: '#151A1F',
+  //     borderRadius: 6,
+  //   }
+  // }
   return (
-    <Container maxWidth="xl" style={{ padding: 0 }}>
-      <Container maxWidth="xl" style={{ padding: 0 }}>
-        <Box>
-          <img
-            height="100%"
-            width="100%"
-            alt="Kippo"
-            src="/static/image/kippo-bg.png"
-          />
-        </Box>
-      </Container>
-      <Container
-        className="mint-button-container"
-        maxWidth="xl"
-        style={{
-          marginTop: '-80%',
-        }}
-      >
+    <Container style={{ padding: 0 }}>
         <Container
           maxWidth="xs"
           style={{
+            width: '364px',
+            padding: 0,
             position: 'relative',
           }}
         >
           <Paper
             style={{
-              padding: 24,
-              paddingBottom: 10,
               backgroundColor: '#151A1F',
               borderRadius: 6,
             }}
@@ -542,21 +546,22 @@ const Home = (props: HomeProps) => {
                     justifyContent="center"
                     wrap="nowrap"
                   >
-                    <Grid item xs={5}>
-                      <Typography variant="body2" color="textSecondary">
+                    <Grid item xs={4} style={{paddingTop: '14px', marginRight: '14px', paddingBottom: '6px'}}>
+                      <Typography variant="body2" color="textSecondary" style={{fontSize: '12px'}}>
                         Remaining
                       </Typography>
                       <Typography
                         variant="h6"
                         color="textPrimary"
                         style={{
+                          fontSize: '14px',
                           fontWeight: 'bold',
                         }}
                       >
                         {`${itemsRemaining + remainingOffset} / 5500`}
                       </Typography>
                     </Grid>
-                    <Grid item xs={2}>
+                    <Grid item xs={2} style={{paddingTop: '14px', paddingBottom: '6px'}}>
                       <Typography variant="body2" color="textSecondary">
                         {isWhitelistUser && discountPrice
                           ? 'Discount Price'
@@ -565,7 +570,10 @@ const Home = (props: HomeProps) => {
                       <Typography
                         variant="h6"
                         color="textPrimary"
-                        style={{ fontWeight: 'bold' }}
+                        style={{
+                          fontSize: '14px',
+                          fontWeight: 'bold'
+                      }}
                       >
                         {isWhitelistUser && discountPrice
                           ? `◎ ${formatNumber.asNumber(discountPrice)}`
@@ -574,13 +582,13 @@ const Home = (props: HomeProps) => {
                             )}`}
                       </Typography>
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={4} style={{paddingTop: '14px', marginLeft: '14px', paddingBottom: '6px'}}>
                       {isActive && endDate && Date.now() < endDate.getTime() ? (
                         <>
                           <MintCountdown
                             key="endSettings"
                             date={getCountdownDate(candyMachine)}
-                            style={{ justifyContent: 'flex-end' }}
+                            style={{ justifyContent: 'flex-end', padding: '10px', fontSize: '12px' }}
                             status="COMPLETED"
                             onComplete={toggleMintButton}
                           />
@@ -588,7 +596,9 @@ const Home = (props: HomeProps) => {
                             variant="caption"
                             align="center"
                             display="block"
-                            style={{ fontWeight: 'bold' }}
+                            style={{
+                              fontSize: '14px',
+                              fontWeight: 'bold' }}
                           >
                             TO END OF MINT
                           </Typography>
@@ -598,7 +608,6 @@ const Home = (props: HomeProps) => {
                           <MintCountdown
                             key="goLive"
                             date={getCountdownDate(candyMachine)}
-                            style={{ justifyContent: 'flex-end' }}
                             status={
                               candyMachine?.state?.isSoldOut ||
                               (endDate && Date.now() > endDate.getTime())
@@ -617,7 +626,7 @@ const Home = (props: HomeProps) => {
                                 variant="caption"
                                 align="center"
                                 display="block"
-                                style={{ fontWeight: 'bold' }}
+                                style={{ fontWeight: 'bold', fontSize: '12px' }}
                               >
                                 UNTIL PUBLIC MINT
                               </Typography>
@@ -627,7 +636,7 @@ const Home = (props: HomeProps) => {
                     </Grid>
                   </Grid>
                 )}
-                <MintContainer>
+                <MintContainer style={{margin: '0 auto'}}>
                   {candyMachine?.state.isActive &&
                   candyMachine?.state.gatekeeper &&
                   wallet.publicKey &&
@@ -738,56 +747,18 @@ const Home = (props: HomeProps) => {
               variant="caption"
               align="center"
               display="block"
-              style={{ marginTop: 7, color: 'grey' }}
+              style={{ marginTop: 6, color: 'grey', fontSize: '10px', paddingBottom: '5px' }}
             >
               Powered by METAPLEX
             </Typography>
           </Paper>
+          <div className="video w-embed">
+            <video autoPlay={true} muted={true} playsInline={true} loop={true} width="100%" height="auto" border-radius="10px">
+              <source src="https://video.twimg.com/ext_tw_video/1537996508535984129/pu/vid/720x720/WZXfF7arB_u81sbl.mp4"
+                      type="video/mp4"/>
+            </video>
+          </div>
         </Container>
-      </Container>
-
-      <Container
-        maxWidth="xl"
-        style={{
-          marginTop: '75%',
-          position: 'relative',
-        }}
-      >
-        <Grid justifyContent="center" alignItems="center" container>
-          <Grid item xs={12} md={7}>
-            <Box>
-              <img
-                style={{ borderRadius: '2.5rem', marginTop: '-9rem' }}
-                width="100%"
-                alt="Kippo"
-                src="/static/image/FVf98ogVEAAtnQe.jpg"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={7}>
-            <Box sx={{ marginTop: '2rem', textAlign: 'center' }}>
-              <img
-                style={{ borderRadius: '2.5rem', marginTop: '2rem' }}
-                width="100%"
-                alt="Kippo"
-                src="/static/image/FVgByXhUUAEB5BF.jpg"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={12}>
-            <Box sx={{ mt: '2rem', textAlign: 'center', pb: '2rem' }}>
-              <Link href="http://kippo.com/nft">
-                <img
-                  style={{ borderRadius: '2.5rem', marginTop: '2rem' }}
-                  width="12%"
-                  alt="Kippo"
-                  src="/static/image/wordmark_nft_full@3x.png"
-                />
-              </Link>
-            </Box>
-          </Grid>
-        </Grid>
-      </Container>
       <Snackbar
         anchorOrigin={{
           vertical: 'top',

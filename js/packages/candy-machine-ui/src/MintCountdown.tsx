@@ -76,7 +76,7 @@ export const MintCountdown: React.FC<MintCountdownProps> = ({
   }: MintCountdownRender) => {
     hours += days * 24;
     if (completed) {
-      return status ? <span className={classes.done}>{status}</span> : null;
+      return status ? <span className={classes.done} style={{fontSize: '12px', padding: '18px'}}>{status}</span> : null;
     } else {
       return (
         <div className={classes.root} style={style}>
@@ -104,6 +104,7 @@ export const MintCountdown: React.FC<MintCountdownProps> = ({
   };
 
   if (date) {
+    // @ts-ignore
     return (
       <Countdown
         date={date}
