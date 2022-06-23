@@ -772,7 +772,7 @@ const Home = (props: HomeProps) => {
               Powered by METAPLEX
             </Typography>
           </Paper>
-          <div className="video w-embed" style={{marginTop: '30px'}}>
+          <div className="video w-embed" style={{marginTop: '20px'}}>
             <video autoPlay={true} muted={true} playsInline={true} loop={true} width="100%" height="auto" border-radius="10px">
               <source src="video/deed_pre-reveal.mp4"
                       type="video/mp4"/>
