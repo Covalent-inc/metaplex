@@ -136,13 +136,13 @@
 }
 
 .price-table {
-  grid-column-gap: 10px;
+  grid-column-gap: 20px;
   grid-row-gap: 10px;
 }
 
 .label {
-  margin-top: 20px;
-  margin-bottom: 25px;
+  margin-top: 15px;
+  margin-bottom: 20px;
   font-family: 'Krana Fat B', sans-serif;
   color: #fff;
   font-size: 32px;
@@ -152,7 +152,7 @@
 }
 
 .text {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .text.bold {
@@ -163,7 +163,7 @@
 
 .text.small {
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 1px;
 }
 
