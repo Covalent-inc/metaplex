@@ -98,7 +98,7 @@
   z-index: 1;
   display: -ms-grid;
   display: grid;
-  width: 1132px;
+  width: 756px;
   height: auto;
   margin-top: -15%;
   -webkit-box-orient: horizontal;
@@ -116,8 +116,8 @@
   grid-auto-columns: 1fr;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  -ms-grid-columns: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   -ms-grid-rows: auto;
   grid-template-rows: auto;
 }
@@ -169,7 +169,7 @@
 
 .video {
   overflow: hidden;
-  height: 364px;
+  height: 368px;
   margin-top: 18px;
   border-radius: 10px;
 }
@@ -270,6 +270,11 @@
   width: 100%;
 }
 
+.mint-widget {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 991px) {
   .graphic-wrapper {
     height: 1000px;
@@ -307,7 +312,6 @@
 
   .grid {
     position: relative;
-    width: 90%;
     margin-top: 0%;
     margin-left: 0%;
     -ms-grid-columns: 1fr 1fr;
@@ -405,7 +409,7 @@
 
   .grid {
     position: relative;
-    width: 90%;
+    width: 368px;
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     -ms-grid-rows: auto auto;
@@ -423,7 +427,6 @@
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
-    height: 550px;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
     -ms-flex-pack: center;
