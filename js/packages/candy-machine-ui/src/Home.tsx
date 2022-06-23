@@ -31,6 +31,7 @@ import { MintButton } from './MintButton';
 import { GatewayProvider } from '@civic/solana-gateway-react';
 import { sendTransaction } from './connection';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
 const ConnectButton = styled(WalletDialogButton)`
   width: 100%;
@@ -517,7 +518,7 @@ const Home = (props: HomeProps) => {
         <Container
           maxWidth="xs"
           style={{
-            width: '364px',
+            width: '368px',
             padding: 0,
             position: 'relative',
           }}
@@ -526,7 +527,17 @@ const Home = (props: HomeProps) => {
             style={paperStyle}
           >
             {!wallet.connected ? (
+              <>
               <ConnectButton>Connect Wallet</ConnectButton>
+                <CrossmintPayButton
+                  style={{marginTop: '20px', width: '100%'}}
+                  collectionTitle="Deeds of Land"
+                  collectionDescription="Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users."
+                  collectionPhoto="https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ"
+                  clientId="3896b136-0e65-4723-b267-44f3cc7c613c"
+                  mintConfig={{"type":"candy-machine"}}
+                />
+              </>
             ) : (
               <>
                 {candyMachine && (
@@ -717,8 +728,17 @@ const Home = (props: HomeProps) => {
                           (isPresale && isWhitelistUser && isValidBalance)
                         }
                       />
+                      <CrossmintPayButton
+                        style={{marginTop: '20px', width: '100%'}}
+                        collectionTitle="Deeds of Land"
+                        collectionDescription="Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users."
+                        collectionPhoto="https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ"
+                        clientId="3896b136-0e65-4723-b267-44f3cc7c613c"
+                        mintConfig={{"type":"candy-machine"}}
+                      />
                     </GatewayProvider>
                   ) : (
+                    <>
                     <MintButton
                       candyMachine={candyMachine}
                       isMinting={isUserMinting}
@@ -729,6 +749,16 @@ const Home = (props: HomeProps) => {
                         (isPresale && isWhitelistUser && isValidBalance)
                       }
                     />
+                      <CrossmintPayButton
+                        style={{marginTop: '20px', width: '100%'}}
+                        collectionTitle="Deeds of Land"
+                        collectionDescription="Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users."
+                        collectionPhoto="https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ"
+                        clientId="3896b136-0e65-4723-b267-44f3cc7c613c"
+                        mintConfig={{"type":"candy-machine"}}
+                      />
+                    </>
+
                   )}
                 </MintContainer>
               </>
@@ -742,7 +772,7 @@ const Home = (props: HomeProps) => {
               Powered by METAPLEX
             </Typography>
           </Paper>
-          <div className="video w-embed">
+          <div className="video w-embed" style={{marginTop: '30px'}}>
             <video autoPlay={true} muted={true} playsInline={true} loop={true} width="100%" height="auto" border-radius="10px">
               <source src="video/deed_pre-reveal.mp4"
                       type="video/mp4"/>
