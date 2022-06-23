@@ -503,7 +503,7 @@ const Home = (props: HomeProps) => {
   let paperStyle = {
     backgroundColor: '#151A1F',
     borderRadius: 6,
-    padding: '20px'
+    padding: 20
   }
   if (wallet.connected) {
     paperStyle = {
@@ -744,7 +744,7 @@ const Home = (props: HomeProps) => {
           </Paper>
           <div className="video w-embed">
             <video autoPlay={true} muted={true} playsInline={true} loop={true} width="100%" height="auto" border-radius="10px">
-              <source src="https://video.twimg.com/ext_tw_video/1537996508535984129/pu/vid/720x720/WZXfF7arB_u81sbl.mp4"
+              <source src="video/deed_pre-reveal.mp4"
                       type="video/mp4"/>
             </video>
           </div>
