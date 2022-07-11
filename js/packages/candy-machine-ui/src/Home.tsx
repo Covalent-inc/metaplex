@@ -32,6 +32,7 @@ import { GatewayProvider } from '@civic/solana-gateway-react';
 import { sendTransaction } from './connection';
 import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import axios from "axios";
 
 const ConnectButton = styled(WalletDialogButton)`
   width: 100%;
@@ -67,6 +68,8 @@ const remainingOffset = 3000;
 
 // @ts-ignore
 const Home = (props: HomeProps) => {
+  const [metadataFetched, setMetadataFetched] = useState(false);
+  const [metadataFetchInProgress, setMetadataFetchInProgress] = useState(false);
   const [isUserMinting, setIsUserMinting] = useState(false);
   const [candyMachine, setCandyMachine] = useState<CandyMachineAccount>();
   const [alertState, setAlertState] = useState<AlertState>({
@@ -501,12 +504,28 @@ const Home = (props: HomeProps) => {
     })();
   }, [refreshCandyMachineState]);
 
+  const fetchNftMetadata = (walletAddress: PublicKey): void => {
+    if (!metadataFetched && !metadataFetchInProgress) {
+      setMetadataFetchInProgress(true);
+      console.log("Fetching NFT metadata...");
+      axios.get("https://cloud.kippo.io/nft-api/kv-nft/metadata/" + walletAddress.toString())
+        .then(result => {
+          console.log(result.data);
+          setMetadataFetched(true);
+          setMetadataFetchInProgress(false);
+      }).catch(err => {
+        console.log(err);
+      });
+    }
+  }
+
   let paperStyle = {
     backgroundColor: '#151A1F',
     borderRadius: 6,
     padding: 20
   }
   if (wallet.connected) {
+    fetchNftMetadata(wallet.publicKey)
     paperStyle = {
       backgroundColor: '#151A1F',
       borderRadius: 6,
