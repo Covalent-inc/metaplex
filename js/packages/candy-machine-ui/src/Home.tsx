@@ -57,6 +57,14 @@ export interface HomeProps {
   network: WalletAdapterNetwork;
 }
 
+interface CrossmintProps {
+  title: string,
+  description: string,
+  photo: string,
+  clientId: string,
+  mintConfig: any
+}
+
 /**
  * We had a hard time uploading all 3501 assets so we
  * decided to upload 500 instead. This offset should give
@@ -64,6 +72,14 @@ export interface HomeProps {
  * upload a new batch after this batch gets minted fully.
  */
 const remainingOffset = 3000;
+
+const crossmintData : CrossmintProps = {
+  title: "Deeds of Land",
+  description: "Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users.",
+  photo: "https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ",
+  clientId: "64b1c5ea-264d-476a-957a-0995d95832a0",
+  mintConfig: {"type":"candy-machine"}
+};
 
 // @ts-ignore
 const Home = (props: HomeProps) => {
@@ -531,11 +547,11 @@ const Home = (props: HomeProps) => {
               <ConnectButton>Connect Wallet</ConnectButton>
                 <CrossmintPayButton
                   style={{marginTop: '20px', width: '100%'}}
-                  collectionTitle="Deeds of Land"
-                  collectionDescription="Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users."
-                  collectionPhoto="https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ"
-                  clientId="3896b136-0e65-4723-b267-44f3cc7c613c"
-                  mintConfig={{"type":"candy-machine"}}
+                  collectionTitle={crossmintData.title}
+                  collectionDescription={crossmintData.description}
+                  collectionPhoto={crossmintData.photo}
+                  clientId={crossmintData.clientId}
+                  mintConfig={crossmintData.mintConfig}
                 />
               </>
             ) : (
@@ -730,11 +746,11 @@ const Home = (props: HomeProps) => {
                       />
                       <CrossmintPayButton
                         style={{marginTop: '20px', width: '100%'}}
-                        collectionTitle="Deeds of Land"
-                        collectionDescription="Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users."
-                        collectionPhoto="https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ"
-                        clientId="3896b136-0e65-4723-b267-44f3cc7c613c"
-                        mintConfig={{"type":"candy-machine"}}
+                        collectionTitle={crossmintData.title}
+                        collectionDescription={crossmintData.description}
+                        collectionPhoto={crossmintData.photo}
+                        clientId={crossmintData.clientId}
+                        mintConfig={crossmintData.mintConfig}
                       />
                     </GatewayProvider>
                   ) : (
@@ -751,11 +767,11 @@ const Home = (props: HomeProps) => {
                     />
                       <CrossmintPayButton
                         style={{marginTop: '20px', width: '100%'}}
-                        collectionTitle="Deeds of Land"
-                        collectionDescription="Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users."
-                        collectionPhoto="https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ"
-                        clientId="3896b136-0e65-4723-b267-44f3cc7c613c"
-                        mintConfig={{"type":"candy-machine"}}
+                        collectionTitle={crossmintData.title}
+                        collectionDescription={crossmintData.description}
+                        collectionPhoto={crossmintData.photo}
+                        clientId={crossmintData.clientId}
+                        mintConfig={crossmintData.mintConfig}
                       />
                     </>
 
