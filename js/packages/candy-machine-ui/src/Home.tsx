@@ -575,7 +575,7 @@ const Home = (props: HomeProps) => {
                           fontWeight: 'bold',
                         }}
                       >
-                        {`${itemsRemaining}`}
+                        {`${itemsRemaining + remainingOffset} / 2500`}
                       </Typography>
                     </Grid>
                     <Grid item xs={2} style={{paddingTop: '14px', paddingBottom: '6px'}}>
