@@ -135,6 +135,19 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
+.div.table.hide {
+  display: none;
+}
+
+.div.lightbox {
+  height: 100%;
+  background-image: url('../images/NFT-Land-Deed-Size.webp');
+  background-position: 50% 75%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+}
+
 .price-table {
   grid-column-gap: 20px;
   grid-row-gap: 10px;
@@ -171,11 +184,6 @@
   overflow: hidden;
   height: 368px;
   margin-top: 18px;
-  border-radius: 10px;
-}
-
-.img {
-  overflow: hidden;
   border-radius: 10px;
 }
 
@@ -814,6 +822,17 @@
 }
 
 #w-node-_2abbcebb-124e-dbc1-852c-042810c7b51c-7844b01a {
+  -ms-grid-column: span 1;
+  grid-column-start: span 1;
+  -ms-grid-column-span: 1;
+  grid-column-end: span 1;
+  -ms-grid-row: span 1;
+  grid-row-start: span 1;
+  -ms-grid-row-span: 1;
+  grid-row-end: span 1;
+}
+
+#w-node-a6c1fb97-67f0-c259-071c-0b59316802b5-7844b01a {
   -ms-grid-column: span 1;
   grid-column-start: span 1;
   -ms-grid-column-span: 1;

@@ -71,7 +71,7 @@ interface CrossmintProps {
  * the impression that we have all 3501. We need to
  * upload a new batch after this batch gets minted fully.
  */
-const remainingOffset = 3000;
+const remainingOffset = 0;
 
 const crossmintData : CrossmintProps = {
   title: "Deeds of Land",
@@ -575,7 +575,7 @@ const Home = (props: HomeProps) => {
                           fontWeight: 'bold',
                         }}
                       >
-                        {`${itemsRemaining + remainingOffset} / 5500`}
+                        {`${itemsRemaining}`}
                       </Typography>
                     </Grid>
                     <Grid item xs={2} style={{paddingTop: '14px', paddingBottom: '6px'}}>
