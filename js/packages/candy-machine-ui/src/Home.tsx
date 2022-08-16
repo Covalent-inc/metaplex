@@ -75,7 +75,7 @@ const remainingOffset = 0;
 
 const crossmintData : CrossmintProps = {
   title: "Deeds of Land",
-  description: "Kippoverse is a real-time virtual world for dating and making new friends. The Kippo App is a live social metaverse with over 700k users.",
+  description: "Kippo is a real-time virtual world for organizing communities and making new friends. The Kippo App is a live social metaverse with over 700k users.",
   photo: "https://arweave.net/QLkPX0o_VevqsjPUw2TA5qTJq10NB6CFhR93Okd_8dQ",
   clientId: "64b1c5ea-264d-476a-957a-0995d95832a0",
   mintConfig: {"type":"candy-machine"}
